@@ -1,0 +1,21 @@
+{"Name": "Metal Mario", "Author": "Bavario", "Description": "Adds Metal Mario from SM64 through the Metal Mushroom to SMG2.", "InstallDependencies": ["Syati_ObjectFactories"], "BuildTasks": [{
+    "Task": "Copy",
+    "From": "disc/",
+    "To": "../../Output/disc/"
+  }],
+  "ModuleData" : [
+    {
+      "NameObjFactory" : [
+        {
+          "Name" : "MorphItemNeoMetal",
+          "Function" : "createExtActor<MorphItemNeoMetal>",
+          "Include" : "MorphItemNeoMetal.h"
+        },
+        {
+          "Name" : "MetalPlayerElectricPad",
+          "Function" : "createExtActor<MetalPlayerElectricPad>",
+          "Include" : "MetalPlayerElectricPad.h"
+        }
+      ]
+    }
+  ]}
