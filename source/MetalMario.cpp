@@ -209,7 +209,7 @@ void MetalMario::initPartsModels () {
 }
 
 void MetalMario::initWithoutIter() {
-    MR::processInitFunctionWithAnimArc(this, "MetalMario", "MarioAnime", false);
+    MR::processInitFunctionWithAnimArc(this, (MR::isPlayerLuigi() ? "MetalLuigi" : "MetalMario"), "MarioAnime", false);
     initPartsModels();
     MR::connectToSceneMapObj(this);
     initHitSensor(3);
@@ -348,6 +348,7 @@ void MetalMario::invalidateElectricity () {
 
 MetalPlayerElectricPad::MetalPlayerElectricPad(const char *pName) : LiveActor(pName) {}
 MetalPlayerElectricPad::~MetalPlayerElectricPad() {}
+
 void MetalPlayerElectricPad::init (const JMapInfoIter &rIter) {
     MR::processInitFunction(this, rIter, false);
     MR::initDefaultPos(this, rIter);
@@ -359,7 +360,9 @@ void MetalPlayerElectricPad::init (const JMapInfoIter &rIter) {
     MR::initCollisionParts(this, "MetalPlayerElectricPad", getSensor("Body"), 0);
     MR::validateCollisionParts(this);
     MR::initUseStageSwitchWriteA(this, rIter);
+    MR::startBrk(this, "Disable");
 }
+
 void MetalPlayerElectricPad::attackSensor (HitSensor *pReceiver, HitSensor *pSender) {
     if (MR::isSensorPlayer(pSender) && gMetalPlayer->mIsPlayerElectric) {
         gMetalPlayer->invalidateElectricity();
