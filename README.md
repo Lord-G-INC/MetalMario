@@ -1,1 +1,1 @@
-A Template for making Syati Modules
+# Metal Mario in Super Mario Galaxy 2
