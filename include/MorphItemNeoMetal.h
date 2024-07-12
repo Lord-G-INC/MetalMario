@@ -4,6 +4,8 @@
 #include "Game/LiveActor/LiveActor.h"
 #include "Game/MapObj/MorphItemObjNeo.h"
 
+#define MORPHMETAL
+
 class MorphItemNeoMetal : public MorphItemObjNeo {
 public:
     MorphItemNeoMetal(const char *);
