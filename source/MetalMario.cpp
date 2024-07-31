@@ -36,7 +36,8 @@ End:
 }
 
 void invalidateMetalOnStarGet (NerveExecutor *pExecutor, const Nerve *pNerve) {
-    gMetalPlayer->invalidateMetal();
+    if (gMetalPlayer) 
+        gMetalPlayer->invalidateMetal();
     pExecutor->setNerve(pNerve);
 }
 kmBranch(0x80451AF4, invalidateMetalOnStarGet);
