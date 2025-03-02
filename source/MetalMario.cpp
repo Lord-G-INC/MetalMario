@@ -165,11 +165,6 @@ kmCall(0x80403C64, replaceHstForMetal);
 void playMetalSound (LiveActor *pActor, const char *soundName, s32 pitch, s32 velocity, s32 volume) {}
 kmCall(0x802D33B0, playMetalSound);
 
-class CollisionCode {
-public:
-    u32 getSoundCode(const JMapInfoIter &);
-};
-
 u32 setSoundCodeToMetal (CollisionCode *pCode, const JMapInfoIter &rIter) {
     u32 soundCode = pCode->getSoundCode(rIter);
     return MarioAccess::getPlayerActor()->mPlayerMode == 14 ? 7 : soundCode;
@@ -310,7 +305,7 @@ void MetalMario::control() {
 }
 
 void MetalMario::attackSensor (HitSensor *pSender, HitSensor *pReceiver) {
-    if (mIsPlayerElectric && MR::isEqualSubString(pReceiver->mActor->mName, "ƒRƒCƒ“")) { // Coin
+    if (mIsPlayerElectric && MR::isEqualSubString(pReceiver->mActor->mName, "ÂƒRÂƒCÂƒÂ“")) { // Coin
         TVec3f newPos = (pReceiver->mPosition - MarioAccess::getPlayerActor()->mTranslation) * 0.6f + MarioAccess::getPlayerActor()->mTranslation;
         MR::setPosition(pReceiver->mActor, newPos);
     }
